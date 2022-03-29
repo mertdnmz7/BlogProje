@@ -1,0 +1,24 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Comment>
+
+<div class="pt-5">
+    <h3 class="mb-5">Bu Posta Yapılan Yorumlar</h3>
+    <ul class="comment-list">
+        @foreach (var item in Model)
+        {
+
+
+        <li class="comment">
+            <div class="vcard">
+                <img src="~/AdminLTE-3.0.4/dist/img/user-1.jpg" alt="Image placeholder">
+            </div>
+            <div class="comment-body">
+                <h3>@item.UserName</h3>
+                <div class="meta">@(((DateTime)item.CommentDate).ToString("dd-MMMM-yyyy"))</div>
+                <p>@item.CommentText</p>
+            </div>
+        </li>
+        }
+    </ul>
+        
+    @Html.Action("LeaveComment","Comment")
+</div>
